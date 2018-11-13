@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"   id="cordova-plugin-apgconnect" version="0.0.1">
+    <name>APGConnect</name>
+    <description>Cordova Plugin APGConnect</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova</keywords>
+    <repo>https://github.com/EnricoKestenholz/cordova-plugin-apgconnect</repo>
+    <issue>https://github.com/EnricoKestenholz/cordova-plugin-apgconnect/issues</issue>
+    <js-module src="www/apgconnect.js" name="apgconnect">
+        <clobbers target="apgconnect" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="apgconnect">
+                <param name="android-package" value="podspec.apgconnect" />
+            </feature>
+        </config-file>
+        <framework src="com.github.APGSGA:apgconnect-android:2.1" />
+        <source-file src="src/android/apgconnect.java" target-dir="src/podspec" />
+        <lib-file src="src/android/notification-hubs-android-sdk-0.4.jar" />
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="apgconnect">
+                <param name="ios-package" value="CDVapgconnect"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVapgconnect.h" />
+        <source-file src="src/ios/CDVapgconnect.m" />
+    </platform>
+</plugin>
