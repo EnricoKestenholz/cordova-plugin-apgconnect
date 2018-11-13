@@ -17,7 +17,6 @@
         </config-file>
         <framework src="com.github.APGSGA:apgconnect-android:2.1" />
         <source-file src="src/android/apgconnect.java" target-dir="src/podspec" />
-        <lib-file src="src/android/notification-hubs-android-sdk-0.4.jar" />
     </platform>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
