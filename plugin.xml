@@ -21,11 +21,11 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="apgconnect">
-                <param name="ios-package" value="CDVapgconnect"/>
+                <param name="ios-package" value="apgconnect"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
-        <header-file src="src/ios/CDVapgconnect.h" />
-        <source-file src="src/ios/CDVapgconnect.m" />
+        <header-file src="src/ios/apgconnect.h" />
+        <source-file src="src/ios/apgconnect.m" />
     </platform>
 </plugin>
