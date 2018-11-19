@@ -13,7 +13,10 @@ var apgconnect = function() {
     this.newPage = function(setting, onsucess, onfail) {
     	exec(onsucess, onfail, "apgconnect", "newPage", []);
     };
-    exec(onsucess, onfail, "apgconnect", "init", []);
+    this.init = function(setting, onsucess, onfail) {
+      exec(onsucess, onfail, "apgconnect", "init", []);
+    };
+    this.init();
 };
 
 
@@ -22,6 +25,8 @@ module.exports = new apgconnect();
 
 window.__APGconnect__callback = function(data){
 
-    var keyword_array = data.apg_keywords;
+    if(window.app){
+        app.apg = data;
+    }
 
 };
