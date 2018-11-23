@@ -18,14 +18,46 @@
  */
 
 #import "apgconnect.h"
-#import <Cordova/CDV.h>
 
-@interface apgconnect ()
+@import APGconnect;
+
+@interface apgconnect(){
+    APGAdManager *adManager;
+}
 
 
 @end
 
 @implementation apgconnect
+
+
+- (void)init:(CDVInvokedUrlCommand*)command
+{
+    [APGSDKManager setup:@"AUTH_KEY"];
+    adManager = [APGAdManager new];
+}
+
+- (void)newPage:(CDVInvokedUrlCommand*)command
+{
+    NSDictionary *customTargetingKeys = @{
+       @"api_token": APGNilSaveString([APGSDKManager apiToken]),
+       @"session_id": APGNilSaveString([APGSDKManager sessionID]),
+       @"ad_id": APGNilSaveString([APGSDKManager advertisingIdentifierString]),
+       @"apg_keywords": [adManager keywords]
+       };
+
+    NSLog(@"customTargetingKeys : %@", customTargetingKeys);
+
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: customTargetingKeys];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+
+- (void)permissionGranted:(CDVInvokedUrlCommand *)command
+{
+
+}
 
 
 @end
