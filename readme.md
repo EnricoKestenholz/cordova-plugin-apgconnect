@@ -44,7 +44,7 @@ com.google.firebase:firebase-messaging:11.8.0
 
 	pod 'APGconnect'
 
-#CORDOVA JAVASCRIPT APP
+# CORDOVA JAVASCRIPT APP
 
 The plugin initialisation is done at the initialisation of the plugin, no need to do it programmatically from the application.
 
